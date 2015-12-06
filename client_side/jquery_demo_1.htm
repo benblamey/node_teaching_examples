@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+<script>
+
+
+console.log('this is a test.');
+
+// Run the function after the page has finished loading.
+jQuery(document).ready(function() {
+
+	// Eventually, we can fetch this via AJAX.
+	var someData = {
+		'foo': 42
+	};
+
+	// Variety of ways of calling this, e.g. javascript/dom objects, css selectors, html code
+	jQuery("body")
+		.css('background', 'red')   /// "void" methods just retun the original set of elements -- so we can chanin the methods like so...
+		.css('color', 'blue');
+
+	jQuery("<p>sdfsadfadsf</p>");
+
+	var myPara = jQuery("#someId")
+		.css('background', 'green')
+		.after('<p>new paragraph'+someData.foo+'</p>');
+
+	myPara.before('<p>this one appears before</p>');
+
+	// $ is a shorthand for the jQuery() method.
+	$(".someClass")
+		.slideUp(6000, function() 
+			{  
+				$(this).remove();  // <<< note the this.
+			} );
+		
+
+	// we can bind to events, using anonmyous functions.
+	$("#myButton").bind('click', function() {
+		alert('hi!');
+		console.log();
+	});
+
+	$("#myButton")
+		// binding the "event" to the "event handler"
+		.bind('mouseover', function() {
+			$("body").css('background', 'blue');
+		})
+		// event bindings can also refer to the function by name.
+		.bind('mouseout', doSomething);
+});
+
+// These functions are called "event handlers"
+function doSomething() {
+	$("body").css('background', 'red');
+}
+
+</script>
+</head>
+<body>
+
+<h2>This is a heading</h2>
+<p id="someId">This is a paragraph.</p>
+<p class="someClass">This is another paragraph.</p>
+<button id="myButton">Click me</button>
+
+	</body>
+
+
+
+</html>

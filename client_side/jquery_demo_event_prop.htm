@@ -1,0 +1,19 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+</head>
+
+<body>
+<script>
+$('document').ready(function(){
+	$('#myForm').bind('click', function( event ) {console.log("form clicked!");});
+	$('#myButton').bind('click', function( event ) {console.log("button clicked!"); });
+});
+</script>
+
+<form id="myForm">
+	<button id="myButton">click me!</button>
+</form>	
+ 
+</body>
+</html>
